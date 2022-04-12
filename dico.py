@@ -52,3 +52,26 @@ print("***"*5)
 print(cle_dans_dico(spam,'color'))
 print("***"*5)
 print(init_dico(spam,'poids',555))
+
+
+stuff={"rope":1,"torch":6,"gold coin":42,"dagger":1,"arrow":12}
+dragon=['gold coin','dagger','gold coin','gold coin','ruby']
+
+def displayInventory(inventory):
+    print("Inventory:")
+    item_total=0
+    for k,v in inventory.items():
+        print(k + " " + str(v))
+        item_total=int(v)+item_total
+    print("Total number of items: " + str(item_total))
+    
+#displayInventory(stuff)
+
+def addToInventory(inventory,addedItems):
+    for i in addedItems:
+        inventory.setdefault(i,0)
+        inventory[i]=inventory[i]+1
+    return inventory
+
+updatedstuff=addToInventory(stuff,dragon)
+displayInventory(updatedstuff)
