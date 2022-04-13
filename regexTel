@@ -1,0 +1,21 @@
+import pprint,re
+
+def findTel(texte,pattern):
+    liste=re.findall(pattern,s)
+    liste1=[]
+    for val in liste:
+        mot='+33'
+        for i in val[1:]:
+          mot=mot+i
+        liste1.append(mot)
+    return liste1
+
+motif = '(\d{10})+'
+
+s = '''
+0656897825
+fsfsfsdf
+0661037120'''
+
+pprint.pprint(s)
+print(findTel(s,motif))
